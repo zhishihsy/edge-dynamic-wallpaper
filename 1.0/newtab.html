@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>newpage</title>
+  <link rel="stylesheet" href="newtab.css">
+</head>
+
+<body>
+
+  <video autoplay loop muted id="bg-video"></video>
+
+  <div class="overlay">
+    <div class="search-container">
+      <form id="search-form" action="https://www.bing.com/search" method="get" target="_blank">
+        <input type="text" name="q" id="search-box" placeholder="使用 Bing 搜索..." autocomplete="off">
+      </form>
+    </div>
+
+    <div class="bottom-hover-area">
+      <div class="controls-container">
+        <button id="mute-btn">🔇 静音</button>
+
+        <div class="slider-container volume-slider">
+          <label for="volume-range">🔊</label>
+          <input type="range" id="volume-range" min="0" max="1" step="0.05" value="1">
+        </div>
+
+        <button id="random-btn">🎲 随机</button>
+
+        <div class="toggle-switch">
+          <input type="checkbox" id="rotate-toggle">
+          <label for="rotate-toggle">自动轮播 (15m)</label>
+        </div>
+
+        <select id="video-select"></select>
+
+        <div class="slider-container opacity-slider">
+          <label for="opacity-range">UI透明度:</label>
+          <input type="range" id="opacity-range" min="0.1" max="1" step="0.1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="videoConfig.js"></script>
+  <script src="newtab.js"></script>
+</body>
+
+</html>

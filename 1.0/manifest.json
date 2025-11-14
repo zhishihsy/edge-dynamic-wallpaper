@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "动态壁纸",
+  "version": "1.0",
+  "description": "这是description",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "videos/*"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

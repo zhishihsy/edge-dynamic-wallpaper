@@ -1,0 +1,179 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: white;
+}
+
+/* 视频背景 */
+#bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  z-index: -100;
+  object-fit: contain;
+  background-color: black;
+}
+
+/* 覆盖层*/
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 搜索框 */
+.search-container {
+  width: 60%;
+  max-width: 500px;
+  margin-bottom: 30px;
+}
+
+#search-box {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s;
+}
+
+#search-box::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#search-box:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ================================================
+  隐藏/弹出 逻辑 和 控制器样式
+  ================================================
+*/
+
+/* 1. 悬停触发区域*/
+.bottom-hover-area {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 30px;
+  /* 弹出后，距离屏幕底部的距离 */
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/* 2. 控制按钮容器*/
+.controls-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  /* 隐藏/弹出 动画 */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+
+  /* 默认隐藏状态 */
+  opacity: 0;
+  transform: translateY(100%);
+  /* 移动到其父容器 padding-bottom 的位置之外 */
+}
+
+/* 3. 悬停时弹出 */
+.bottom-hover-area:hover .controls-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* 按钮和下拉菜单的统一样式 (黑底) */
+.controls-container button,
+.controls-container select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.controls-container button:hover,
+.controls-container select:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.controls-container select option {
+  background: black;
+  color: white;
+}
+
+/* 通用滑块容器 */
+.slider-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 14px;
+}
+
+.slider-container label {
+  margin-right: 8px;
+}
+
+/* 音量滑块特定 */
+.volume-slider label {
+  font-size: 18px;
+  line-height: 1;
+  margin-right: 5px;
+}
+
+/* 自动轮播开关 */
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.toggle-switch label {
+  margin-left: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+}
+
+#rotate-toggle {
+  cursor: pointer;
+  accent-color: #eee;
+}
